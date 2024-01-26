@@ -6,6 +6,8 @@ import { ogg } from './ogg.js'
 import { openai } from "./openai.js";
 import { removeFile } from './utils.js'
 
+console.log(config.get('TEST_ENV'))
+
 const bot = new Telegraf(config.get('TELEGRAM_TOKEN'))
 // при вызове команды new и start бот регистрирует новую беседу,
 // новый контекст
