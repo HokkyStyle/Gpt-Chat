@@ -21,7 +21,7 @@
     "config": "^3.3.10",
     "fluent-ffmpeg": "^2.1.2",
     "logic": "^0.0.3",
-    "openai": "^4.0.0",
+    "openai": "^3.2.1",
     "telegraf": "^4.15.3"
   }
 }

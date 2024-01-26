@@ -1,7 +1,6 @@
-import  Configuration from 'openai'
-import OpenAIApi from 'openai'
+import { Configuration, OpenAIApi } from 'openai'
 import config from 'config'
-import fs from 'fs';
+import { createReadStream } from 'fs'
 class OpenAI {
   roles = {
     ASSISTANT: 'assistant',
@@ -27,10 +26,10 @@ class OpenAI {
   }
   async transcription(filepath) {
     try {
-      const response = await OpenAI.audio.transcriptions.create({
-        file: fs.createReadStream(filepath, 'rb'),
-        model: "whisper-1",
-    })
+      const response = await this.openai.createTranscription(
+        createReadStream(filepath),
+        'whisper-1'
+      )
       return response.data.text
     } catch (e) {
       console.log('Error while transcription', e.message)
